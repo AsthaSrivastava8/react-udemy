@@ -14,11 +14,13 @@ const ExpenseForm = (props) => {
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
+    // --- will not work --- React schedules state change, so userInput might have outdated values. 
     // setUserInput({
     //   ...userInput,
     //   enteredTitle: event.target.value,
     // });
 
+    // --- will work ---
     // setUserInput((prevState) => {
     //   return { ...prevState, enteredTitle: event.target.value };
     // });
@@ -26,10 +28,13 @@ const ExpenseForm = (props) => {
 
   const amountChangeHandler = (event) => {
     setEnteredAmount(event.target.value);
+    // --- will not work ---
     // setUserInput({
     //   ...userInput,
     //   enteredAmoumt: event.target.value,
     // });
+
+    // --- will work ---
     // setUserInput((prevState) => {
     //   return { ...prevState, enteredAmoumt: event.target.value }; // in case current state depends on previous state
     // });
@@ -37,17 +42,20 @@ const ExpenseForm = (props) => {
 
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
+    // --- will not work ---
     // setUserInput({
     //   ...userInput,
     //   enteredDate: event.target.value,
     // });
+
+    // --- will work ---
     // setUserInput((prevState) => {
     //   return { ...prevState, enteredDate: event.target.value };
     // });
   };
 
   const submitHandler = (event) => {
-    event.preventDefault();
+    event.preventDefault(); // stops page to reload
 
     const expenseData = {
       title: enteredTitle,
@@ -68,7 +76,7 @@ const ExpenseForm = (props) => {
           <label>Title</label>
           <input
             type="text"
-            value={enteredTitle}
+            value={enteredTitle} // for two-way binding; we can feed back value from the UI
             onChange={titleChangeHandler}
           />
         </div>
