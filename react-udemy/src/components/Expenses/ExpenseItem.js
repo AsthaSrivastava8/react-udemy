@@ -10,9 +10,7 @@ const ExpenseItem = (props) => {
         <h2>{props.title}</h2>
         <div className="expense-item__price">${props.amount}</div>
       </div>
-      {/* not using () in function name, because then the function will be called
-      and evaluated when the jsx is returned to the DOM instead on when
-      button is clicked on the page */}
+      
     </Card>
   );
 };

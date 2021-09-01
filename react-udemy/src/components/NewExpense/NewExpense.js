@@ -18,4 +18,10 @@ const NewExpense = (props) => {
   );
 };
 
+{
+  /* not using () in function name, because then the function will be called
+      and evaluated when the jsx is returned to the DOM instead on when
+      button is clicked on the page */
+}
+
 export default NewExpense;
